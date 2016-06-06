@@ -15,6 +15,7 @@ Storage.prototype.add = function add(name) {
 }
 
 Storage.prototype.remove = function remove(id) {
+  this.id--
   return this.items.splice(id, 1)[0]
 }
 

@@ -16,6 +16,7 @@ class Storage {
   }
 
   remove(id) {
+    this.id--
     return this.items.splice(id, 1)[0]
   }
 
