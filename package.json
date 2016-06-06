@@ -5,11 +5,11 @@
   "main": "src/server_traditional.js",
   "scripts": {
     "dev": "nodemon --exec babel-node src/server.js",
-    "prestart": "babel src -d dist",
+    "heroku-postbuild": "babel src -d dist",
     "start": "node dist/server.js"
   },
   "keywords": [],
-  "author": "Michael Reynolds <michael4reynolds@gmail.com",
+  "author": "Michael Reynolds <michael4reynolds@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.1",
