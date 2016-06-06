@@ -5,7 +5,7 @@
   "main": "src/server_traditional.js",
   "scripts": {
     "dev": "nodemon --exec babel-node src/server.js",
-    "heroku-postbuild": "babel src -d dist",
+    "postinstall": "bash ./post_install.sh",
     "start": "node dist/server.js"
   },
   "keywords": [],
