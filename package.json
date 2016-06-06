@@ -2,10 +2,9 @@
   "name": "shopping-list",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/server.js",
+  "main": "src/server_traditional.js",
   "scripts": {
     "dev": "nodemon --exec babel-node src/server.js",
-    "module": "babel src -d lib",
     "prestart": "babel src -d dist",
     "start": "node dist/server.js"
   },
