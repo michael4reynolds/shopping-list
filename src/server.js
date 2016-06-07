@@ -40,7 +40,7 @@ app.get('/items', (req, res) => {
 })
 
 app.post('/items', jsonParser, (req, res) => {
-  if (!req.body) {
+  if (Object.keys(req.body).length === 0) {
     return res.sendStatus(400)
   }
 
@@ -52,6 +52,7 @@ app.delete('/items/:id', (req, res) => {
   if (!storage.items[req.params.id]) {
     return res.status(404).json({'item': 'item not found'})
   }
+  
   let item = storage.remove(req.params.id)
   res.status(200).json(item)
 })
@@ -60,8 +61,7 @@ app.put('/items/:id', jsonParser, (req, res) => {
   if (!storage.items[req.params.id]) {
     return res.status(404).json({'item': 'item not found'})
   }
-  if (!req.body) {
-    console.log('not found so far')
+  if (!req.body || Object.keys(req.body).length === 0) {
     return res.sendStatus(400)
   }
 

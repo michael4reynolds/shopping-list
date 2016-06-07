@@ -97,4 +97,46 @@ describe('Shopping List', () => {
         done()
       })
   })
+  it('should not add an item without a body', (done) => {
+    chai.request(app)
+      .post('/items')
+      .send({})
+      .end((err, res) => {
+        err.should.not.be.null
+        res.should.have.status(400)
+        done()
+      })
+  })
+  it('should not edit an item without a body', (done) => {
+    storage.items[1].should.deep.equal({name: 'Peppers', id: 2})
+    chai.request(app)
+      .put('/items/1')
+      .send({})
+      .end((err, res) => {
+        err.should.not.be.null
+        res.should.have.status(400)
+        done()
+      })
+  })
+  it('should not try to edit a nonexistent item', (done) => {
+    chai.request(app)
+      .put('/items/5')
+      .send({'name': 'Pineapple'})
+      .end((err, res) => {
+        err.should.not.be.null
+        res.should.have.status(404)
+        done()
+      })
+  })
+  it('should not try to delete a nonexistent item', (done) => {
+    storage.items.should.have.length(3)
+    chai.request(app)
+      .delete('/items/5')
+      .end((err, res) => {
+        err.should.not.be.null
+        res.should.have.status(404)
+        storage.items.should.have.length(3)
+        done()
+      })
+  })
 })
