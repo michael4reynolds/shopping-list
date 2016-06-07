@@ -2,11 +2,12 @@
   "name": "shopping-list",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server_traditional.js",
+  "main": "dist/server.js",
   "scripts": {
     "dev": "nodemon --exec babel-node src/server.js",
     "postinstall": "bash ./post_install.sh",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "test": "mocha --compilers js:babel-register"
   },
   "keywords": [],
   "author": "Michael Reynolds <michael4reynolds@gmail.com>",
@@ -19,7 +20,11 @@
     "babel-cli": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-2": "^6.5.0",
+    "babel-register": "6.9.0",
+    "chai": "3.5.0",
+    "chai-http": "^2.0.1",
     "eslint": "^2.11.1",
+    "mocha": "2.5.3",
     "nodemon": "^1.9.2"
   },
   "babel": {

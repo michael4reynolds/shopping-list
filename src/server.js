@@ -70,3 +70,5 @@ app.put('/items/:id', jsonParser, (req, res) => {
 })
 
 app.listen(process.env.PORT || 8080)
+
+export {app, storage}
