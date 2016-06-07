@@ -21,7 +21,7 @@ class Storage {
   }
 
   update(id, body) {
-    body.id = id
+    body.id = Number(id)
     this.items[id] = body
     return this.items[id]
   }
